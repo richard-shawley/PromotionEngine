@@ -16,7 +16,7 @@ Scenario: A
 	Given the cart contains '1' of product 'A'
 	And the cart contains '1' of product 'B'
 	And the cart contains '1' of product 'C'
-	When the promotion engine is triggered
+	When the customer checks out
 	Then the calculated total is '100.0'
 
 @promotionEngine
@@ -24,7 +24,7 @@ Scenario: B
 	Given the cart contains '5' of product 'A'
 	And the cart contains '5' of product 'B'
 	And the cart contains '1' of product 'C'
-	When the promotion engine is triggered
+	When the customer checks out
 	Then the calculated total is '370.0'
 
 @promotionEngine
@@ -33,5 +33,14 @@ Scenario: C
 	And the cart contains '5' of product 'B'
 	And the cart contains '1' of product 'C'
 	And the cart contains '1' of product 'D'
-	When the promotion engine is triggered
+	When the customer checks out
 	Then the calculated total is '280.0'
+
+@promotionEngine
+Scenario: BigCart
+	Given the cart contains '10' of product 'A'
+	And the cart contains '10' of product 'B'
+	And the cart contains '10' of product 'C'
+	And the cart contains '15' of product 'D'
+	When the customer checks out
+	Then the calculated total is '1040.0'

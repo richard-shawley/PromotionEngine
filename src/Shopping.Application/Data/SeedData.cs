@@ -37,7 +37,7 @@ namespace Shopping.Application.Data
         {
             SeedMultiBuyPromotion(3, "A", 130.0M);
             SeedMultiBuyPromotion(2, "B", 45.0M);
-            SeedBundlePromotion(new string[] { "C", "D" }, 50.0M);
+            SeedBundlePromotion(new string[] { "C", "D" }, 30.0M);
         }
 
         private void SeedMultiBuyPromotion(int quantity, string sku, decimal price)
@@ -72,7 +72,7 @@ namespace Shopping.Application.Data
                     Price = price
                 });
 
-            Console.WriteLine($"Seeded promotion for {skus} at price {price}");
+            Console.WriteLine($"Seeded promotion for {String.Join(" and ", skus)} at price {price}");
         }
 
         private PromotionCriteria CreatePromotionCriteria(int quantity, string sku)

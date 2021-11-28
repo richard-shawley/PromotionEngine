@@ -69,8 +69,8 @@ namespace Shopping.Specs
             _promotionEngineContext.Cart.AddItem(new CartItem(GetProduct(sku), quantity));
         }
 
-        [When(@"the promotion engine is triggered")]
-        public void WhenThePromotionEngineIsTriggered()
+        [When(@"the customer checks out")]
+        public void WhenTheCustomerChecksOut()
         {
             _promotionEngineContext.Checkout = new Checkout(_promotionEngineContext.PromotionEngine);
         }
