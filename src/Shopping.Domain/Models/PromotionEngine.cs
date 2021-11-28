@@ -21,7 +21,14 @@ namespace Shopping.Domain.Models
 
         public decimal GetDiscount(IEnumerable<CartItem> cartItems)
         {
-            throw new NotImplementedException();
+            if (cartItems == null) throw new ArgumentNullException(nameof(cartItems));
+            if (cartItems.Count() == 0) return 0.0M;
+
+            var discount = GetApplicablePromtions(cartItems).Sum(p => p.GetDiscountOnCartItems(cartItems));
+            return discount;
         }
+
+        private IEnumerable<IPromotion> GetApplicablePromtions(IEnumerable<CartItem> cartItems)
+            => _promotions.Where(p => p.IsValid(cartItems));
     }
 }
