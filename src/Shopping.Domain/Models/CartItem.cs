@@ -11,7 +11,7 @@ namespace Shopping.Domain.Models
     {
         public Product Product { get; private set; }
         public int Quantity { get; private set; }
-        public decimal TotalPrice { get; private set; }
+        public decimal TotalPrice => Quantity * Product.Price;
 
         public CartItem(Product product, int quantity)
         {
@@ -21,13 +21,12 @@ namespace Shopping.Domain.Models
         }
 
         public void IncreaseQuantity(int increaseBy)
-        {
-
-        }
+            => Quantity += increaseBy;
 
         public void DecreaseQuantity(int decreaseBy)
         {
-
+            if (Quantity - decreaseBy <= 0) throw new ArgumentOutOfRangeException(nameof(decreaseBy), "Cart item quantity cannot be decreased below 1");
+            Quantity -= decreaseBy;
         }
     }
 }
