@@ -3,6 +3,7 @@ using Shopping.Application.DependencyInjection;
 using Shopping.Domain.DependencyInjection;
 using Shopping.Infrastructure.DependencyInjection;
 using Shopping.Application.Data;
+using Shopping.Application.Interface;
 
 namespace Shopping.Application
 {
@@ -18,6 +19,10 @@ namespace Shopping.Application
             seedData.SeedProducts();
             seedData.SeedPromotions();
             Console.WriteLine("--------------- SEEDING DATA FINISHED ---------------");
+
+            var shoppingConsole = _serviceProvider!.GetService<ShoppingConsole>() ?? throw new InvalidOperationException();
+            Console.WriteLine("--------------- STARTING SHOP ---------------");
+            shoppingConsole.ActionMenu();
         }
 
         static ServiceProvider BuildServiceProvider()
