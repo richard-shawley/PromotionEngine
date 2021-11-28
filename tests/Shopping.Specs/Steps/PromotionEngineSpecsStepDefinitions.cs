@@ -2,9 +2,6 @@
 using Shopping.Domain.Entities;
 using Shopping.Domain.Models;
 using Shopping.Specs.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Shopping.Specs

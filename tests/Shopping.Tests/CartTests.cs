@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Shopping.Domain.Entities;
 using Shopping.Domain.Models;
-using System;
 
 namespace Shopping.Tests
 {
