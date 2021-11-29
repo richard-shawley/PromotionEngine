@@ -1,6 +1,6 @@
 ﻿Feature: PromotionEngineSpecs
 
-This feature is test the promotion engine behaivour against the scenarios outlined in the brief
+This feature is test the promotion engine behaviour against the scenarios outlined in the brief
 
 Background:
 	Given product 'A' costs '50.0'

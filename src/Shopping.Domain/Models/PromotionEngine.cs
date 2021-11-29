@@ -19,12 +19,12 @@ namespace Shopping.Domain.Models
             if (cartItems == null) throw new ArgumentNullException(nameof(cartItems));
             if (cartItems.Count() == 0) return 0.0M;
 
-            var applicablePromotions = GetApplicablePromtions(cartItems);
-            var discount = GetApplicablePromtions(cartItems).Sum(p => p.GetDiscountOnCartItems(cartItems));
+            var applicablePromotions = GetApplicablePromotions(cartItems);
+            var discount = GetApplicablePromotions(cartItems).Sum(p => p.GetDiscountOnCartItems(cartItems));
             return discount;
         }
 
-        private IEnumerable<IPromotion> GetApplicablePromtions(IEnumerable<CartItem> cartItems)
+        private IEnumerable<IPromotion> GetApplicablePromotions(IEnumerable<CartItem> cartItems)
             => _promotions.Where(p => p.IsValid(cartItems));
     }
 }
